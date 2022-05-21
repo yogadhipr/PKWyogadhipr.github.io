@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="style.css">
+    <title> Pratikum 6</title>
+</head>
+<body>
+
+    <header>
+        <span>SURVEY KEPUASAN PELANGGAN</span>
+    </header>
+
+    <div class="w3-container" style="margin-top:40px" id="form">
+        <form action="#" class="container">
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" id="nama" />
+            <br />
+            <label for="umur">Umur</label>
+            <input type="text" name="umur" id="umur" />
+            <br />
+            <label for="jeniskelamin">Jenis Kelamin</label>
+            <br />
+            <input type="radio" name="jeniskelamin" id="jeniskelamin" value="Laki-laki" /> Laki-laki
+            <input type="radio" name="jeniskelamin" id="jeniskelamin" value="Perempuan"> Perempuan
+            <br />
+            <label for="nilai">Nilai Kepuasaan (1-5)</label>
+            <input type="text" name="nilai" id="nilai" />
+            <br />
+            <label for="produk">Darimana anda mengetahui produk kami</label>
+            <br />
+            <input type="checkbox" name="produk" id="produk" value="Social Media" /> Social Media
+            <br />
+            <input type="checkbox" name="produk" id="produk" value="Teman" /> Teman
+            <br />
+            <input type="checkbox" name="produk" id="produk" value="Internet" /> Internet
+            <br />
+            <label for="layanan">Apakah anda menggunakan layanan kami</label>
+            <br />
+            <input type="radio" name="layanan" id="layanan" value="Ya" /> Ya
+            <input type="radio" name="layanan" id="layanan" value="Tidak" /> Tidak
+            <br />
+            <label for="saran">Kritik dan Saran</label>
+            <br />
+            <textarea name="saran" id="saran" cols="30" rows="3"></textarea>
+            <br />
+            <input type="button" value="Kirim" onclick="tampilData()" />
+        </form>
+    </div>
+    <script>
+        function tampilData() {
+            var nama = document.getElementById("nama").value;
+            var umur = document.getElementById("umur").value;
+            var jeniskelamin = document.querySelector("input[name = jeniskelamin]:checked").value;
+            var nilai = document.getElementById("nilai").value;
+            var layanan = document.querySelector("input[name = layanan]:checked").value;
+            var saran = document.getElementById("saran").value;
+            var produk = document.getElementsByName("produk");
+            var daftarproduk = ''
+            
+            for(var produk2 of produk) 
+            {
+                if(produk2.checked)
+                {
+                    daftarproduk += ', '+ produk2.value
+                }
+            }
+
+            daftarproduk = daftarproduk.substring(1)
+
+            alert(
+                "Nama : " +
+                    nama + 
+                    "\nUmur : " +
+                    umur +
+                    "\nJenis Kelamin : " +
+                    jeniskelamin +
+                    "\nNilai Kepuasan : " +
+                    nilai +
+                    "\nInfo Layanan : " +
+                    daftarproduk +
+                    "\nMenggunakan Layanan : " +
+                    layanan +
+                    "\nKritik dan Saran : " +
+                    saran
+            );
+        }
+    </script>
+   
+</body>
+</html>
